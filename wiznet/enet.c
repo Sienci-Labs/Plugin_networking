@@ -294,7 +294,7 @@ static void enet_poll (sys_state_t state)
 //        ethernet_link_check_state(netif_default);
     }
 
-    if(enet_event || packet.len) {
+    if(enet_event || packet.len || !DIGITAL_IN(SPI_IRQ_PORT, SPI_IRQ_PIN)) {
 
         sockint_kind irq = 0;
 
